@@ -1,0 +1,301 @@
+<main class="h-full overflow-y-auto bg-gradient-to-br from-primary-light via-white to-secondary-light">
+  <!-- Navigation -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-primary/10 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold text-accent">ranchhand.io</span>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="text-accent hover:text-primary transition-colors font-medium">Dashboard</a>
+          <a href="#" class="text-accent hover:text-primary transition-colors font-medium">Animals</a>
+          <a href="#" class="text-accent hover:text-primary transition-colors font-medium">Reports</a>
+          <a href="#" class="text-accent hover:text-primary transition-colors font-medium">Settings</a>
+        </div>
+
+        <!-- User Profile -->
+        <div class="flex items-center space-x-3">
+          <button (click)="navigateToLogin()"
+            class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-all transform hover:scale-105">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="space-y-8">
+          <div>
+            <h1 class="text-5xl lg:text-6xl font-bold text-accent leading-tight">
+              Track Your
+              <span class="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+                Livestock
+              </span>
+              <br>Like Never Before
+            </h1>
+            <p class="text-xl text-accent/70 mt-6 leading-relaxed">
+              Comprehensive livestock management made simple. Monitor health, track breeding cycles, manage inventory,
+              and
+              optimize your farm operations with powerful analytics.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button
+              class="bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 hover:shadow-xl">
+              Start Free Trial
+            </button>
+            <button
+              class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all">
+              Watch Demo
+            </button>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="grid grid-cols-3 gap-8 pt-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary">500+</div>
+              <div class="text-accent/60 text-sm">Farms Managed</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary">50K+</div>
+              <div class="text-accent/60 text-sm">Animals Tracked</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary">99.9%</div>
+              <div class="text-accent/60 text-sm">Uptime</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content - Dashboard Preview -->
+        <div class="relative">
+          <div
+            class="bg-white rounded-2xl shadow-2xl p-6 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div class="bg-gradient-to-r from-primary to-primary-dark rounded-lg p-4 mb-4">
+              <h3 class="text-white font-semibold text-lg">Farm Overview</h3>
+            </div>
+
+            <!-- Mock Dashboard Content -->
+            <div class="space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-secondary rounded-lg p-4">
+                  <div class="text-2xl font-bold text-accent">247</div>
+                  <div class="text-sm text-accent/60">Total Cattle</div>
+                </div>
+                <div class="bg-primary-light rounded-lg p-4">
+                  <div class="text-2xl font-bold text-accent">18</div>
+                  <div class="text-sm text-accent/60">Health Alerts</div>
+                </div>
+              </div>
+
+              <!-- Mock Chart -->
+              <div class="bg-gray-50 rounded-lg p-4 h-32">
+                <div class="flex justify-between items-end h-full">
+                  <div class="bg-primary w-4 h-16 rounded-t"></div>
+                  <div class="bg-secondary w-4 h-20 rounded-t"></div>
+                  <div class="bg-primary w-4 h-12 rounded-t"></div>
+                  <div class="bg-secondary w-4 h-24 rounded-t"></div>
+                  <div class="bg-primary w-4 h-18 rounded-t"></div>
+                  <div class="bg-secondary w-4 h-14 rounded-t"></div>
+                </div>
+              </div>
+
+              <!-- Mock Recent Activity -->
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3 p-2 bg-gray-50 rounded">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-sm text-accent/70">Cow #247 vaccinated</span>
+                </div>
+                <div class="flex items-center space-x-3 p-2 bg-gray-50 rounded">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span class="text-sm text-accent/70">Feed inventory updated</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="absolute top-20 right-20 w-20 h-20 bg-secondary/20 rounded-full animate-pulse"></div>
+    <div class="absolute bottom-40 left-10 w-16 h-16 bg-primary/10 rounded-full animate-bounce"></div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-white/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-accent mb-4">Everything You Need to Manage Your Herd</h2>
+        <p class="text-xl text-accent/70 max-w-3xl mx-auto">Powerful tools designed specifically for modern livestock
+          operations</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature Cards -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-primary/10">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-accent mb-2">Real-time Monitoring</h3>
+          <p class="text-accent/60">Track animal health, location, and behavior with IoT sensors and smart tags.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-primary/10">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-accent mb-2">Financial Tracking</h3>
+          <p class="text-accent/60">Monitor expenses, revenue, and profitability with detailed financial analytics.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-primary/10">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-accent mb-2">Smart Alerts</h3>
+          <p class="text-accent/60">Get instant notifications for health issues, breeding cycles, and maintenance needs.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-primary/10">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-accent mb-2">Inventory Management</h3>
+          <p class="text-accent/60">Track feed, medications, and equipment with automated reorder alerts.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-primary/10">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-accent mb-2">Breeding Records</h3>
+          <p class="text-accent/60">Manage breeding programs, track genetics, and optimize herd genetics.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-primary/10">
+          <div
+            class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-accent mb-2">Advanced Reports</h3>
+          <p class="text-accent/60">Generate comprehensive reports for better decision making and compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary to-primary-dark">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-white mb-6">
+        Ready to Transform Your Livestock Management?
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        Join thousands of farmers who trust LivestockTracker to optimize their operations
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-colors">
+          Start Your Free Trial
+        </button>
+        <button
+          class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-xl font-semibold transition-colors">
+          Schedule Demo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-accent text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>
+            <span class="text-lg font-bold">ranchhand.io</span>
+          </div>
+          <p class="text-white/70">
+            Modern livestock management for the digital age.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Product</h4>
+          <div class="space-y-2 text-white/70">
+            <a href="#" class="block hover:text-white transition-colors">Features</a>
+            <a href="#" class="block hover:text-white transition-colors">Pricing</a>
+            <a href="#" class="block hover:text-white transition-colors">API</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <div class="space-y-2 text-white/70">
+            <a href="#" class="block hover:text-white transition-colors">Documentation</a>
+            <a href="#" class="block hover:text-white transition-colors">Help Center</a>
+            <a href="#" class="block hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Company</h4>
+          <div class="space-y-2 text-white/70">
+            <a href="#" class="block hover:text-white transition-colors">About</a>
+            <a href="#" class="block hover:text-white transition-colors">Blog</a>
+            <a href="#" class="block hover:text-white transition-colors">Careers</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
+        <p>&copy; 2025 ranchhand.io All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</main>
