@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  private navService = inject(NavigationService);
 
   ngOnInit() {
+  }
+
+  navigateUrl(url: string) {
+    this.navService.navigateTo(url);
   }
 
 }

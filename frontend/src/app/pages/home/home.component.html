@@ -1,11 +1,14 @@
+@if (user(); as user) {
 <main class="h-full bg-gradient-to-br from-primary via-white to-accent p-4 overflow-y-auto">
   <!-- Dashboard Header -->
   <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-4">
     <div class="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div class="w-full flex flex-row justify-between items-center">
         <div>
-          <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Good morning, John!</h1>
-          <p class="text-gray-600 text-sm">Welcome back to your farm dashboard</p>
+          <!-- <img [src]="user" alt="user avatar" class="w-12 h-12 rounded-full mb-2 sm:mb-0 mr-3 object-cover inline-block" /> -->
+          <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Good morning,</h1>
+          <h1 class="text-xl sm:text-2xl font-bold text-gray-800">{{ user.person.first_name }}!</h1>
+          <p class="text-gray-600 text-sm">Welcome back to your ranch dashboard</p>
         </div>
         <!-- Notifications -->
         <div class="relative self-start sm:self-center">
@@ -302,3 +305,4 @@
     </div>
   </div>
 </main>
+}
