@@ -29,7 +29,7 @@ export class AuthHelperService {
     return this.authService
       .logoutApiV1AuthLogoutPost()
       .pipe(take(1))
-      .subscribe(() => this.router.createUrlTree(['/login']));
+      .subscribe(() => this.router.navigate(['/login']));
   }
 
   authZeroLogin() {
