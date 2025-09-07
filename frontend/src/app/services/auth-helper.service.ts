@@ -2,6 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { AuthService, UserResponseDTO, UsersService } from '../api';
 import { firstValueFrom, map, take, tap } from 'rxjs';
 import { AuthService as AuthZeroService } from '@auth0/auth0-angular';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class AuthHelperService {
   private authService = inject(AuthService);
   private userService = inject(UsersService);
   private authZeroService = inject(AuthZeroService);
+  private router = inject(Router);
 
   private readonly _user = signal<UserResponseDTO | null>(null);
   user = computed(() => this._user());
@@ -24,7 +26,10 @@ export class AuthHelperService {
     localStorage.clear();
     sessionStorage.clear();
     this._user.set(null);
-    return this.authService.logoutApiV1AuthLogoutPost().pipe(take(1));
+    return this.authService
+      .logoutApiV1AuthLogoutPost()
+      .pipe(take(1))
+      .subscribe(() => this.router.createUrlTree(['/login']));
   }
 
   authZeroLogin() {
