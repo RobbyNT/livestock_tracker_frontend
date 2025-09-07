@@ -16,3 +16,26 @@
     --color-accent-light: #CCE774;
     --color-accent-dark: #38450C;
 }
+
+/* Use dvh (dynamic viewport height) for better mobile support */
+.full-height {
+  min-height: 100dvh; /* Dynamic viewport height */
+  min-height: 100vh;  /* Fallback for older browsers */
+}
+
+/* Fix for mobile Safari address bar */
+@supports (-webkit-touch-callout: none) {
+  .full-height {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Add safe area insets for notched devices */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Prevent zoom on input focus (iOS) */
+input, select, textarea {
+  font-size: 16px !important;
+}
