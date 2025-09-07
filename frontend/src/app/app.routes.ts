@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'multifactor-auth', component: MultiFactorComponent },
   { path: 'auth/callback', component: AuthCallbackComponent },
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-  { path: 'loading', component: LoadingScreenComponent },
+  { path: 'loading', component: LoadingScreenComponent, canActivate: [authGuard] },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', component: NotFoundComponent },
 ];

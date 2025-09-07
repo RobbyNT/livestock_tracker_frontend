@@ -14,6 +14,11 @@ export class LoadingScreenComponent implements OnInit {
   @Input() customMessage: string = 'Loading';
 
   ngOnInit() {
+    this.loadingService.setLoading(true);
+  }
+
+  toggleLoading() {
+    this.loadingService.setLoading(!this.isLoading());
   }
 
 }
