@@ -14,15 +14,27 @@ export class AuthHelperService {
   private readonly _user = signal<UserResponseDTO | null>(null);
   user = computed(() => this._user());
 
-
   login(username: string, password: string) {
     return this.authService
       .loginApiV1AuthLoginPost(username, password)
       .pipe(take(1));
   }
 
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+    this._user.set(null);
+    return this.authService.logoutApiV1AuthLogoutPost().pipe(take(1));
+  }
+
   authZeroLogin() {
     return this.authZeroService.loginWithRedirect();
+  }
+
+  authZeroLogout() {
+    return this.authZeroService.logout({
+      logoutParams: { returnTo: window.location.origin },
+    });
   }
 
   register(
