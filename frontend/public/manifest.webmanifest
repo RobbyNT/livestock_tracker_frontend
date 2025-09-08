@@ -1,9 +1,9 @@
 {
-  "name": "frontend",
-  "short_name": "frontend",
+  "name": "RanchXpert",
+  "short_name": "RanchXpert",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "./login",
   "icons": [
     {
       "src": "icons/icon-72x72.png",

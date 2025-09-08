@@ -46,15 +46,15 @@ export class AuthService extends BaseService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public loginApiV1AuthLoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public loginApiV1AuthLoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public loginApiV1AuthLoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public loginApiV1AuthLoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public loginAuthV1LoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public loginAuthV1LoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public loginAuthV1LoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public loginAuthV1LoginPost(username: string, password: string, grantType?: string, scope?: string, clientId?: string, clientSecret?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
-            throw new Error('Required parameter username was null or undefined when calling loginApiV1AuthLoginPost.');
+            throw new Error('Required parameter username was null or undefined when calling loginAuthV1LoginPost.');
         }
         if (password === null || password === undefined) {
-            throw new Error('Required parameter password was null or undefined when calling loginApiV1AuthLoginPost.');
+            throw new Error('Required parameter password was null or undefined when calling loginAuthV1LoginPost.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -116,7 +116,7 @@ export class AuthService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/auth/login`;
+        let localVarPath = `/auth/v1/login`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -137,10 +137,10 @@ export class AuthService extends BaseService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public logoutApiV1AuthLogoutPost(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public logoutApiV1AuthLogoutPost(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public logoutApiV1AuthLogoutPost(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public logoutApiV1AuthLogoutPost(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public logoutAuthV1LogoutPost(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public logoutAuthV1LogoutPost(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public logoutAuthV1LogoutPost(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public logoutAuthV1LogoutPost(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -167,7 +167,7 @@ export class AuthService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/auth/logout`;
+        let localVarPath = `/auth/v1/logout`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {
@@ -191,15 +191,15 @@ export class AuthService extends BaseService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public registerApiV1AuthRegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public registerApiV1AuthRegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public registerApiV1AuthRegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public registerApiV1AuthRegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public registerAuthV1RegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public registerAuthV1RegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public registerAuthV1RegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public registerAuthV1RegisterPost(firstName: string, lastName: string, emailAddress?: string, phoneNumber?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (firstName === null || firstName === undefined) {
-            throw new Error('Required parameter firstName was null or undefined when calling registerApiV1AuthRegisterPost.');
+            throw new Error('Required parameter firstName was null or undefined when calling registerAuthV1RegisterPost.');
         }
         if (lastName === null || lastName === undefined) {
-            throw new Error('Required parameter lastName was null or undefined when calling registerApiV1AuthRegisterPost.');
+            throw new Error('Required parameter lastName was null or undefined when calling registerAuthV1RegisterPost.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -237,7 +237,7 @@ export class AuthService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/auth/register`;
+        let localVarPath = `/auth/v1/register`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('post', `${basePath}${localVarPath}`,
             {

@@ -18,7 +18,7 @@ export class AuthHelperService {
 
   login(username: string, password: string) {
     return this.authService
-      .loginApiV1AuthLoginPost(username, password)
+      .loginAuthV1LoginPost(username, password)
       .pipe(take(1));
   }
 
@@ -27,7 +27,7 @@ export class AuthHelperService {
     sessionStorage.clear();
     this._user.set(null);
     return this.authService
-      .logoutApiV1AuthLogoutPost()
+      .logoutAuthV1LogoutPost()
       .pipe(take(1))
       .subscribe(() => this.router.navigate(['/login']));
   }
@@ -48,7 +48,7 @@ export class AuthHelperService {
     emailAddress: string,
     phoneNumber: string
   ) {
-    return this.authService.registerApiV1AuthRegisterPost(
+    return this.authService.registerAuthV1RegisterPost(
       firstName,
       lastName,
       emailAddress,
@@ -60,10 +60,10 @@ export class AuthHelperService {
     if (this._user()) {
       return this._user();
     }
-    if (localStorage.getItem('user')) {
-      this._user.set(JSON.parse(localStorage.getItem('user')!));
-      return this._user();
-    }
+    // if (localStorage.getItem('user')) {
+    //   this._user.set(JSON.parse(localStorage.getItem('user')!));
+    //   return this._user();
+    // }
 
     try {
       const response = await firstValueFrom(
@@ -71,7 +71,7 @@ export class AuthHelperService {
       );
       const user = response.data;
       this._user.set(user);
-      localStorage.setItem('user', JSON.stringify(user));
+      // localStorage.setItem('user', JSON.stringify(user));
       return user;
     } catch (err) {
       this._user.set(null);

@@ -9,10 +9,9 @@ export const authGuard: CanActivateFn = async (route, state): Promise<boolean | 
   const user = await authHelperService.loadUser();
 
   if (!user) {
-    router.createUrlTree(['/login'], {
+    return router.createUrlTree(['/login'], {
       queryParams: { returnUrl: state.url },
     });
-    return false;
   }
 
   const requiredScopes: string[] = route.data['scopes'] || [];
@@ -20,7 +19,7 @@ export const authGuard: CanActivateFn = async (route, state): Promise<boolean | 
   const hasAccess = requiredScopes.length === 0 || scopeCheck;
 
   if (!hasAccess) {
-    router.createUrlTree(['/unauthorized'], {
+    return router.createUrlTree(['/unauthorized'], {
       queryParams: { returnUrl: state.url },
     });
   }
