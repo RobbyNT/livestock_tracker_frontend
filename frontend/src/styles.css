@@ -17,6 +17,12 @@
     --color-accent-dark: #38450C;
 }
 
+:root {
+  --header-height: 75px; /* Adjust to your actual header height */
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
+}
+
 .app-container {
   /* min-height: 100vh;
   min-height: 100dvh;

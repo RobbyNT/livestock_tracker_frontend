@@ -1,6 +1,19 @@
-<main class="h-screen w-full grid grid-rows-[auto_1fr]">
+<!-- <main class="h-screen w-full grid grid-rows-[auto_1fr]">
   <app-header *ngIf="showHeader" class="shrink-0" />
   <div class="flex-1 overflow-y-auto app-container">
+    <router-outlet />
+  </div>
+</main> -->
+
+<main class="h-[100dvh] w-full flex flex-col relative">
+  <!-- Fixed header -->
+  <app-header 
+    *ngIf="showHeader" 
+    class="fixed top-0 left-0 right-0 z-50 h-[75px] pt-[env(safe-area-inset-top)] bg-white shadow-md" 
+  />
+  
+  <!-- Scrollable content with proper top spacing -->
+  <div class="flex-1 overflow-y-auto pt-[calc(75px+env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom)+1rem)]">
     <router-outlet />
   </div>
 </main>

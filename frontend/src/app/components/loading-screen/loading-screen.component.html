@@ -1,14 +1,14 @@
 @if (isLoading(); as isLoading) {
-<main class="flex flex-col items-center justify-center md:justify-start">
+<main class="h-full flex flex-col items-center justify-center md:justify-start p-6">
   <div class="text-center space-y-8">
     <!-- Animated Logo/Icon -->
-    <div class="relative">
+    <!-- <div class="relative">
       <div class="w-16 h-16 mx-auto mb-4">
-        <div class="w-16 h-16 border-4 border-text-secondary border-t-text-primary rounded-full">
+        <div class="w-16 h-16 animate-pulse">
           <img src="assets/main_logo.svg" alt="logo" class="absolute inset-0 m-auto size-8" />
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Loading Text -->
     <!-- <div class="space-y-2">
@@ -19,11 +19,18 @@
     <!-- Animated Dots -->
     <div class="flex flex-row items-center justify-center space-x-2">
       <h1 class="text-3xl font-medium mb-4">{{ customMessage }}</h1>
-      <div class="w-2 h-2 bg-black dark:bg-white rounded-full animate-bounce"></div>
-      <div class="w-2 h-2 bg-black dark:bg-white rounded-full animate-bounce" style="animation-delay: 150ms;"></div>
-      <div class="w-2 h-2 bg-black dark:bg-white rounded-full animate-bounce" style="animation-delay: 300ms;"></div>
-      <div class="w-2 h-2 bg-black dark:bg-white rounded-full animate-bounce" style="animation-delay: 450ms;"></div>
-      <div class="w-2 h-2 bg-black dark:bg-white rounded-full animate-bounce" style="animation-delay: 600ms;"></div>
+      <div class="w-2 h-2 dark:bg-white rounded-full animate-bounce">
+        <img src="assets/main_logo.svg" alt="logo" class="absolute inset-0 m-auto size-auto" />
+      </div>
+      <div class="w-2 h-2 dark:bg-white rounded-full animate-bounce" style="animation-delay: 150ms;">
+        <img src="assets/main_logo.svg" alt="logo" class="absolute inset-0 m-auto size-auto" />
+      </div>
+      <div class="w-2 h-2  dark:bg-white rounded-full animate-bounce" style="animation-delay: 300ms;"><img
+          src="assets/main_logo.svg" alt="logo" class="absolute inset-0 m-auto size-auto" /></div>
+      <div class="w-2 h-2 dark:bg-white rounded-full animate-bounce" style="animation-delay: 450ms;"><img
+          src="assets/main_logo.svg" alt="logo" class="absolute inset-0 m-auto size-auto" /></div>
+      <div class="w-2 h-2 dark:bg-white rounded-full animate-bounce" style="animation-delay: 600ms;"><img
+          src="assets/main_logo.svg" alt="logo" class="absolute inset-0 m-auto size-auto" /></div>
     </div>
   </div>
 
