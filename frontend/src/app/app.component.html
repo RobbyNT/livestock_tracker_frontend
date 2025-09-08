@@ -7,13 +7,14 @@
 
 <main class="h-[100dvh] w-full flex flex-col relative">
   <!-- Fixed header -->
-  <app-header 
-    *ngIf="showHeader" 
-    class="fixed top-0 left-0 right-0 z-50 h-[75px] pt-[env(safe-area-inset-top)] bg-white shadow-md" 
-  />
-  
+  @if (showHeader()) {
+  <app-header class="fixed top-0 left-0 right-0 z-50 h-[75px] pt-[env(safe-area-inset-top)] bg-white shadow-md" />
+  }
+
   <!-- Scrollable content with proper top spacing -->
-  <div class="flex-1 overflow-y-auto pt-[calc(75px+env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom)+1rem)]">
+  <div
+    class="flex-1 overflow-y-auto pt-[calc(75px+env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom)+1rem)]"
+    [ngClass]="showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))]' : 'pt-[calc(env(safe-area-inset-top))]'">
     <router-outlet />
   </div>
 </main>
