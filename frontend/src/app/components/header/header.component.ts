@@ -1,7 +1,5 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavigationService } from '../../services/navigation.service';
-import { DOCUMENT } from '@angular/common';
-import { AuthService } from '@auth0/auth0-angular';
 import { AuthHelperService } from '../../services/auth-helper.service';
 
 @Component({
@@ -12,10 +10,12 @@ import { AuthHelperService } from '../../services/auth-helper.service';
 })
 export class HeaderComponent implements OnInit {
   private navigationService = inject(NavigationService);
-  checkRoute = this.navigationService.checkRoute.bind(this.navigationService);
   private authHelperService = inject(AuthHelperService);
 
-  ngOnInit() {}
+  showHeader = this.navigationService.showHeader;
+
+  ngOnInit() {
+  }
 
   navigateUrl(url: string) {
     this.navigationService.navigateTo(url);

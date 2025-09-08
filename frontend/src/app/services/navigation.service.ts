@@ -1,18 +1,40 @@
-import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
   private router = inject(Router);
+  private readonly _showHeader = signal<boolean>(false);
+  showHeader = computed(() => this._showHeader());
+  
+  constructor() {
+    // Initialize with current route
+    this.updateHeaderVisibility();
+    
+    // Listen for route changes
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.updateHeaderVisibility();
+    });
+  }
 
   navigateTo(url: string) {
     this.router.navigate([url]);
   }
+
   checkRoute(url: string): boolean {
-    const excludedRoutes = ['/landing-page', '/login', '/register', '/home'];
-    console.log(url);
-    return !excludedRoutes.includes(url);
+    const excludedRoutes = ['/landing-page', '/login', '/register'];
+    const pathname = url.split('?')[0];
+    return !excludedRoutes.includes(pathname);
   }
+
+  private updateHeaderVisibility() {
+    const shouldShow = this.checkRoute(this.router.url);
+    this._showHeader.set(shouldShow);
+  }
+
 }

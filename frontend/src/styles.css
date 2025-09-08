@@ -17,25 +17,22 @@
     --color-accent-dark: #38450C;
 }
 
-/* Use dvh (dynamic viewport height) for better mobile support */
-.full-height {
-  min-height: 100dvh; /* Dynamic viewport height */
-  min-height: 100vh;  /* Fallback for older browsers */
+.app-container {
+  /* min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column; */
+  
+  /* Add safe areas */
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
 }
 
-/* Fix for mobile Safari address bar */
-@supports (-webkit-touch-callout: none) {
-  .full-height {
-    min-height: -webkit-fill-available;
-  }
-}
-
-/* Add safe area insets for notched devices */
-body {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-/* Prevent zoom on input focus (iOS) */
-input, select, textarea {
-  font-size: 16px !important;
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  /* Additional bottom padding for comfort */
+  padding-bottom: 20px;
 }

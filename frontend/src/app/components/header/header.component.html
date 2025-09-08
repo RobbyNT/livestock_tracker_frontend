@@ -1,3 +1,4 @@
+@if (showHeader()) {
 <main class="flex flex-row items-center justify-between p-2 gap-4">
   <div class="flex flex-row items-center gap-2">
     <div class="border-3 border-accent rounded-xl flex flex-row items-center justify-center p-2"
@@ -21,8 +22,7 @@
           clip-rule="evenodd" />
       </svg>
     </button>
-    <button
-    (click)="logout()">
+    <button (click)="logout()">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="size-6 rotate-270">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -31,3 +31,4 @@
     </button>
   </div>
 </main>
+}
