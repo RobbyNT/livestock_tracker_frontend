@@ -8,7 +8,6 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { MultiFactorComponent } from './pages/multi-factor/multi-factor.component';
-import { AuthGuardService } from './guards/auth-guard.service';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { AuthCallbackComponent } from './pages/auth-callback/auth-callback.component';
 import { authGuard } from './guards/auth.guard';
@@ -22,8 +21,8 @@ export const routes: Routes = [
   { path: 'reset-password?token=:token', component: ResetPasswordComponent },
   { path: 'multifactor-auth', component: MultiFactorComponent },
   { path: 'auth/callback', component: AuthCallbackComponent },
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-  { path: 'loading', component: LoadingScreenComponent, canActivate: [authGuard] },
+  { path: 'home', component: HomeComponent },
+  { path: 'loading', component: LoadingScreenComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', component: NotFoundComponent },
 ];

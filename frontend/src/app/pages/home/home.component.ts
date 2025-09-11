@@ -1,8 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { AuthHelperService } from '../../services/auth-helper.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { AsyncPipe } from '@angular/common';
 import { take } from 'rxjs';
+import { UserResponseDTO } from '../../api';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +19,12 @@ export class HomeComponent implements OnInit {
   auth0User$ = this.authService.user$;
   // user: any = null;
 
-  user = this.authHelperService.user;
+  // user = this.authHelperService.user;
+  user = signal<any | null>(null)
 
   ngOnInit() {
+    this.user.set({first_name: "Robby"});
+
     this.auth0User$.pipe(take(1)).subscribe({
       next: (u) => {
         console.log('Auth0 User:', u);

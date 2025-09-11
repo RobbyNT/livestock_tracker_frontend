@@ -7,7 +7,7 @@ import { NavigationService } from './services/navigation.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgClass, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
