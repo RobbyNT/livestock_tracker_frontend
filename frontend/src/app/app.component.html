@@ -12,8 +12,9 @@
   }
   
   <!-- Scrollable content with proper top spacing -->
-  <div class=" overflow-y-auto {{
-    showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom)+1rem)]' : 'pt-[calc(env(safe-area-inset-top))]'
+  <div class=" overflow-y-auto
+   {{
+    showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] ' : 'pt-[calc(env(safe-area-inset-top))]'
   }}">
     <router-outlet />
   </div>
