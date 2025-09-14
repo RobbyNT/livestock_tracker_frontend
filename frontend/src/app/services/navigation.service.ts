@@ -9,17 +9,19 @@ export class NavigationService {
   private router = inject(Router);
   private readonly _showHeader = signal<boolean>(false);
   showHeader = computed(() => this._showHeader());
-  
+
+  private readonly _showNavMenu = signal<boolean>(false);
+  showNavMenu = computed(() => this._showNavMenu());
+
   constructor() {
-    // Initialize with current route
     this.updateHeaderVisibility();
-    
-    // Listen for route changes
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.updateHeaderVisibility();
-    });
+
+    // Listens for route changes
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.updateHeaderVisibility();
+      });
   }
 
   navigateTo(url: string) {
@@ -37,4 +39,7 @@ export class NavigationService {
     this._showHeader.set(shouldShow);
   }
 
+  setShowNavMenu(flag: boolean) {
+    this._showNavMenu.set(flag);
+  }
 }

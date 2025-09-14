@@ -5,17 +5,17 @@
   </div>
 </main> -->
 
-<main class="h-screen w-full flex flex-col relative">
+<main class="h-screen w-screen flex flex-col relative bg-gradient-to-br from-primary via-white to-accent dark:from-black dark:via-secondary dark:to-accent">
   <!-- Fixed header -->
   @if (showHeader()) {
   <app-header class="fixed top-0 left-0 right-0 z-50 h-[75px] pt-[env(safe-area-inset-top)] bg-white shadow-md" />
   }
-
+  
   <!-- Scrollable content with proper top spacing -->
-  <div
-    class="flex-1 overflow-y-auto {{
-      showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom)+1rem)]' : 'pt-[calc(env(safe-area-inset-top))]'
-    }}">
+  <div class=" overflow-y-auto {{
+    showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] pb-[calc(env(safe-area-inset-bottom)+1rem)]' : 'pt-[calc(env(safe-area-inset-top))]'
+  }}">
     <router-outlet />
   </div>
+  <app-mobile-navigation-menu class="md:hidden w-full" />
 </main>

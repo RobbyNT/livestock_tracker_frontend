@@ -1,26 +1,14 @@
 @if (user(); as user) {
-<main class="h-full bg-gradient-to-br from-primary via-white to-accent p-4 overflow-y-auto">
+<main class="h-full p-4 overflow-y-auto">
   <!-- Dashboard Header -->
-  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-4">
-    <div class="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  <div class="bg-white dark:bg-secondary-dark rounded-lg shadow-sm border border-gray-200 p-4 mb-4">
+    <div class="w-full flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div class="w-full flex flex-row justify-between items-center">
         <div>
           <!-- <img [src]="user" alt="user avatar" class="w-12 h-12 rounded-full mb-2 sm:mb-0 mr-3 object-cover inline-block" /> -->
-          <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Good morning,</h1>
-          <h1 class="text-xl sm:text-2xl font-bold text-gray-800">{{ user.first_name }}!</h1>
-          <p class="text-gray-600 text-sm">Welcome back to your ranch dashboard</p>
-        </div>
-        <!-- Notifications -->
-        <div class="relative self-start sm:self-center">
-          <button class="p-2 rounded-lg hover:bg-gray-100 relative">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-              <path fill-rule="evenodd"
-                d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z"
-                clip-rule="evenodd" />
-            </svg>
-            <span
-              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
-          </button>
+          <h1 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">Good morning,</h1>
+          <h1 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">{{ user.first_name }}!</h1>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Welcome back to your ranch dashboard</p>
         </div>
       </div>
       <div class="w-full flex flex-row gap-2 sm:gap-4 justify-center md:justify-end">
@@ -40,11 +28,11 @@
   <!-- Key Metrics Row -->
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
     <!-- Total Animals -->
-    <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+    <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-600 font-medium">Total Animals</p>
-          <p class="text-2xl font-bold text-gray-800 mt-1">247</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Total Animals</p>
+          <p class="text-2xl font-bold text-gray-800 dark:text-gray-200 mt-1">247</p>
           <p class="text-sm text-green-600 mt-1">+12 this month</p>
         </div>
         <div class="w-10 h-10 bg-accent-light rounded-lg flex items-center justify-center">
@@ -57,11 +45,11 @@
     </div>
 
     <!-- Health Alerts -->
-    <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+    <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-600 font-medium">Health Alerts</p>
-          <p class="text-2xl font-bold text-gray-800 mt-1">18</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Health Alerts</p>
+          <p class="text-2xl font-bold text-gray-800 dark:text-gray-200 mt-1">18</p>
           <p class="text-sm text-red-600 mt-1">5 urgent</p>
         </div>
         <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
@@ -74,11 +62,11 @@
     </div>
 
     <!-- Feed Inventory -->
-    <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+    <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-600 font-medium">Feed Stock</p>
-          <p class="text-2xl font-bold text-gray-800 mt-1">1,247</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Feed Stock</p>
+          <p class="text-2xl font-bold text-gray-800 dark:text-gray-200 mt-1">1,247</p>
           <p class="text-sm text-amber-600 mt-1">tons remaining</p>
         </div>
         <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
@@ -91,11 +79,11 @@
     </div>
 
     <!-- Monthly Revenue -->
-    <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+    <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-600 font-medium">This Month</p>
-          <p class="text-2xl font-bold text-gray-800 mt-1">$47,284</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">This Month</p>
+          <p class="text-2xl font-bold text-gray-800 dark:text-gray-200 mt-1">$47,284</p>
           <p class="text-sm text-green-600 mt-1">+8.2% vs last month</p>
         </div>
         <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
@@ -110,35 +98,35 @@
 
   <div class="grid lg:grid-cols-3 gap-6 mb-6">
     <!-- Recent Activity -->
-    <div class="lg:col-span-full bg-white rounded-lg p-4 sm:p-6 shadow-sm border border-gray-100">
+    <div class="lg:col-span-full bg-white dark:bg-secondary-dark rounded-lg p-4 sm:p-6 shadow-sm border border-gray-100">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
-        <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Recent Activity</h2>
-        <button class="text-accent hover:text-accent-dark font-medium text-sm self-start">View All</button>
+        <h2 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200">Recent Activity</h2>
+        <button class="text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-accent font-medium text-sm self-start">View All</button>
       </div>
       <div class="space-y-3">
-        <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+        <div class="flex items-start space-x-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg border-1 dark:border-white">
           <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
           <div class="flex-1 min-w-0">
-            <p class="font-medium text-gray-800 text-sm">Cow #A247 vaccinated</p>
-            <p class="text-sm text-gray-600">Annual vaccination completed by Dr. Smith</p>
+            <p class="font-medium text-gray-800 dark:text-gray-200 text-sm">Cow #A247 vaccinated</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Annual vaccination completed by Dr. Smith</p>
             <span class="text-xs text-gray-500 mt-1 block sm:hidden">2 hours ago</span>
           </div>
           <span class="text-sm text-gray-500 hidden sm:block flex-shrink-0">2 hours ago</span>
         </div>
-        <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+        <div class="flex items-start space-x-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg border-1 dark:border-white">
           <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
           <div class="flex-1 min-w-0">
-            <p class="font-medium text-gray-800 text-sm">Feed inventory updated</p>
-            <p class="text-sm text-gray-600">Received 50 tons of premium hay</p>
+            <p class="font-medium text-gray-800 dark:text-gray-200 text-sm">Feed inventory updated</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Received 50 tons of premium hay</p>
             <span class="text-xs text-gray-500 mt-1 block sm:hidden">4 hours ago</span>
           </div>
           <span class="text-sm text-gray-500 hidden sm:block flex-shrink-0">4 hours ago</span>
         </div>
-        <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+        <div class="flex items-start space-x-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg border-1 dark:border-white">
           <div class="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
           <div class="flex-1 min-w-0">
-            <p class="font-medium text-gray-800 text-sm">Bull #B103 breeding scheduled</p>
-            <p class="text-sm text-gray-600">Breeding appointment set for tomorrow</p>
+            <p class="font-medium text-gray-800 dark:text-gray-200 text-sm">Bull #B103 breeding scheduled</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Breeding appointment set for tomorrow</p>
             <span class="text-xs text-gray-500 mt-1 block sm:hidden">6 hours ago</span>
           </div>
           <span class="text-sm text-gray-500 hidden sm:block flex-shrink-0">6 hours ago</span>
@@ -147,7 +135,7 @@
     </div>
 
       <!-- Weather Widget -->
-      <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-4 text-white">
+      <div class="bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-800 dark:to-blue-900 rounded-lg p-4 text-white">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-base font-semibold">Farm Weather</h3>
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -162,74 +150,74 @@
       </div>
 
       <!-- Upcoming Tasks -->
-      <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-        <h3 class="text-base font-semibold text-gray-800 mb-3">Upcoming Tasks</h3>
+      <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
+        <h3 class="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">Upcoming Tasks</h3>
         <div class="space-y-2">
           <div class="flex items-center space-x-2">
             <input title="task-checkoff" placeholder="task-checkoff" type="checkbox" class="w-4 h-4 text-accent border-gray-300 rounded">
-            <span class="text-sm text-gray-800">Morning pasture rotation</span>
+            <span class="text-sm text-gray-800 dark:text-gray-200">Morning pasture rotation</span>
           </div>
           <div class="flex items-center space-x-2">
             <input title="task-checkoff" placeholder="task-checkoff" type="checkbox" class="w-4 h-4 text-accent border-gray-300 rounded">
-            <span class="text-sm text-gray-800">Medication for Cow #A156</span>
+            <span class="text-sm text-gray-800 dark:text-gray-200">Medication for Cow #A156</span>
           </div>
           <div class="flex items-center space-x-2">
             <input title="task-checkoff" placeholder="task-checkoff" type="checkbox" class="w-4 h-4 text-accent border-gray-300 rounded">
-            <span class="text-sm text-gray-800">Feed supplier meeting</span>
+            <span class="text-sm text-gray-800 dark:text-gray-200">Feed supplier meeting</span>
           </div>
           <div class="flex items-center space-x-2">
             <input title="task-checkoff" placeholder="task-checkoff" type="checkbox" class="w-4 h-4 text-accent border-gray-300 rounded" checked>
-            <span class="text-sm text-gray-800 line-through opacity-60">Water system check</span>
+            <span class="text-sm text-gray-800 dark:text-gray-200 line-through opacity-60">Water system check</span>
           </div>
         </div>
-        <button class="w-full mt-3 text-accent hover:text-accent font-medium text-sm py-1">Add New Task</button>
+        <button class="w-full mt-3 text-white dark:text-gray-200 hover:bg-accent-dark bg-accent  border-1 dark:border-white font-medium text-sm py-2 rounded">Add New Task</button>
       </div>
       <!-- Herd Health Status -->
-      <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Herd Health Status</h2>
+      <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Herd Health Status</h2>
         <div class="space-y-3">
           <!-- Healthy -->
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
               <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span class="text-gray-800 text-sm">Healthy</span>
+              <span class="text-gray-800 dark:text-gray-200 text-sm">Healthy</span>
             </div>
             <div class="text-right">
-              <span class="font-semibold text-gray-800">214</span>
-              <span class="text-sm text-gray-600 ml-1">(87%)</span>
+              <span class="font-semibold text-gray-800 dark:text-gray-200">214</span>
+              <span class="text-sm text-gray-600 dark:text-gray-300 ml-1">(87%)</span>
             </div>
           </div>
           <!-- Under Treatment -->
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
               <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <span class="text-gray-800 text-sm">Under Treatment</span>
+              <span class="text-gray-800 dark:text-gray-200 text-sm">Under Treatment</span>
             </div>
             <div class="text-right">
-              <span class="font-semibold text-gray-800">18</span>
-              <span class="text-sm text-gray-600 ml-1">(7%)</span>
+              <span class="font-semibold text-gray-800 dark:text-gray-200">18</span>
+              <span class="text-sm text-gray-600 dark:text-gray-300 ml-1">(7%)</span>
             </div>
           </div>
           <!-- Quarantine -->
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
               <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <span class="text-gray-800 text-sm">Quarantine</span>
+              <span class="text-gray-800 dark:text-gray-200 text-sm">Quarantine</span>
             </div>
             <div class="text-right">
-              <span class="font-semibold text-gray-800">5</span>
-              <span class="text-sm text-gray-600 ml-1">(2%)</span>
+              <span class="font-semibold text-gray-800 dark:text-gray-200">5</span>
+              <span class="text-sm text-gray-600 dark:text-gray-300 ml-1">(2%)</span>
             </div>
           </div>
           <!-- Pregnant -->
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
               <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
-              <span class="text-gray-800 text-sm">Pregnant</span>
+              <span class="text-gray-800 dark:text-gray-200 text-sm">Pregnant</span>
             </div>
             <div class="text-right">
-              <span class="font-semibold text-gray-800">10</span>
-              <span class="text-sm text-gray-600 ml-1">(4%)</span>
+              <span class="font-semibold text-gray-800 dark:text-gray-200">10</span>
+              <span class="text-sm text-gray-600 dark:text-gray-300 ml-1">(4%)</span>
             </div>
           </div>
         </div>
@@ -251,15 +239,15 @@
 
 
   <!-- Quick Actions Grid -->
-  <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-    <h2 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h2>
+  <div class="bg-white dark:bg-secondary-dark rounded-lg p-4 shadow-sm border border-gray-100">
+    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Quick Actions</h2>
     <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-3">
       <button
         class="flex flex-col items-center p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent-50 transition-colors">
         <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
         </svg>
-        <span class="text-xs font-medium text-gray-800 text-center">Add Animal</span>
+        <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-center">Add Animal</span>
       </button>
       <button
         class="flex flex-col items-center p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent-50 transition-colors">
@@ -267,7 +255,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
-        <span class="text-xs font-medium text-gray-800 text-center">Health Check</span>
+        <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-center">Health Check</span>
       </button>
       <button
         class="flex flex-col items-center p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent-50 transition-colors">
@@ -275,7 +263,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
         </svg>
-        <span class="text-xs font-medium text-gray-800 text-center">Feed Order</span>
+        <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-center">Feed Order</span>
       </button>
       <button
         class="flex flex-col items-center p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent-50 transition-colors">
@@ -283,7 +271,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2" />
         </svg>
-        <span class="text-xs font-medium text-gray-800 text-center">Generate Report</span>
+        <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-center">Generate Report</span>
       </button>
       <button
         class="flex flex-col items-center p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent-50 transition-colors">
@@ -291,7 +279,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
-        <span class="text-xs font-medium text-gray-800 text-center">Breeding Log</span>
+        <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-center">Breeding Log</span>
       </button>
       <button
         class="flex flex-col items-center p-3 rounded-lg border border-gray-200 hover:border-accent hover:bg-accent-50 transition-colors">
@@ -300,7 +288,7 @@
             d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
-        <span class="text-xs font-medium text-gray-800 text-center">Settings</span>
+        <span class="text-xs font-medium text-gray-800 dark:text-gray-200 text-center">Settings</span>
       </button>
     </div>
   </div>

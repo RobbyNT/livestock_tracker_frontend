@@ -1,17 +1,33 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { computed, inject, Injectable, signal } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-  private readonly _isDarkMode = signal(false);
-  isDarkMode = computed(() => this._isDarkMode());
+  private readonly document = inject(DOCUMENT);
+  private readonly _darkMode = signal<boolean>(false);
+  darkMode = computed(() => this._darkMode());
 
-  setTheme(theme: 'dark' | 'light') {
-    this._isDarkMode.set(theme === 'dark');
+  constructor() {
+    let isDarkMode = localStorage.getItem('theme') === 'dark';
+    this.setTheme(isDarkMode);
   }
 
-  toggleTheme() {
-    this._isDarkMode.set(!this.isDarkMode());
+  setTheme(darkMode: boolean) {
+      if (darkMode) {
+        this.document.body.classList.add('dark');
+        this.document.body.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        this.document.body.classList.add('light');
+        this.document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+      this._darkMode.set(darkMode);
+    }
+
+  toggleDarkMode() {
+    this.setTheme(!this.darkMode());
   }
 }
