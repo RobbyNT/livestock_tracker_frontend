@@ -12,11 +12,13 @@
   }
   
   <!-- Scrollable content with proper top spacing -->
-  <div class=" overflow-y-auto
+  <div class="h-full overflow-y-auto
    {{
     showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] ' : 'pt-[calc(env(safe-area-inset-top))]'
   }}">
     <router-outlet />
   </div>
-  <app-mobile-navigation-menu class="md:hidden w-full" />
+  @if (showHeader()) {
+    <app-mobile-navigation-menu class="md:hidden w-full" />
+  }
 </main>
