@@ -21,3 +21,13 @@
   --safe-bottom: env(safe-area-inset-bottom);
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh; /* ensure content is taller than screen */
+  -webkit-overflow-scrolling: touch; /* smooth momentum scrolling */
+}

@@ -5,20 +5,20 @@
   </div>
 </main> -->
 
-<main class="h-full w-full flex flex-col relative bg-gradient-to-br from-primary via-white to-accent dark:from-black dark:via-secondary dark:to-accent">
+<main class="h-full w-full flex flex-col bg-gradient-to-br from-primary via-white to-accent dark:from-black dark:via-secondary dark:to-accent">
   <!-- Fixed header -->
   @if (showHeader()) {
-  <app-header class="fixed top-0 left-0 right-0 z-50 h-[75px] pt-[env(safe-area-inset-top)] bg-white shadow-md" />
+  <app-header class="h-[75px] bg-white shadow-md" />
   }
   
   <!-- Scrollable content with proper top spacing -->
-  <div class="h-full overflow-y-auto
-   {{
+  <div class="h-full overflow-y-auto">
+   <!-- {{
     showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] ' : 'pt-[calc(env(safe-area-inset-top))]'
-  }}">
+  }}"> -->
     <router-outlet />
   </div>
   @if (showHeader()) {
-    <app-mobile-navigation-menu class="md:hidden w-full" />
+    <app-mobile-navigation-menu class="md:hidden w-full mt-1" />
   }
 </main>
