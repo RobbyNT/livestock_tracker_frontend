@@ -11,10 +11,15 @@ import { MultiFactorComponent } from './pages/multi-factor/multi-factor.componen
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { AuthCallbackComponent } from './pages/auth-callback/auth-callback.component';
 import { authGuard } from './guards/auth.guard';
+import { NewAnimalComponent } from './pages/animal/new-animal/new-animal.component';
+import { EditAnimalComponent } from './pages/animal/edit-animal/edit-animal.component';
+import { HomeAnimalComponent } from './pages/animal/home-animal/home-animal.component';
+import { MyProfileComponent } from './pages/user/my-profile/my-profile.component';
+import { MySettingsComponent } from './pages/user/my-settings/my-settings.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'landing-page', component: LandingComponent  },
+  { path: 'landing-page', component: LandingComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -22,7 +27,12 @@ export const routes: Routes = [
   { path: 'multifactor-auth', component: MultiFactorComponent },
   { path: 'auth/callback', component: AuthCallbackComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'my-profile', component: MyProfileComponent },
+  { path: 'settings', component: MySettingsComponent },
   { path: 'loading', component: LoadingScreenComponent },
+  { path: 'animal/home', component: HomeAnimalComponent },
+  { path: 'animal/new', component: NewAnimalComponent },
+  { path: 'animal/:id', component: EditAnimalComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', component: NotFoundComponent },
 ];

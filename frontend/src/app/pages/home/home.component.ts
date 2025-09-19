@@ -4,6 +4,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { AsyncPipe } from '@angular/common';
 import { take } from 'rxjs';
 import { UserResponseDTO } from '../../api';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +15,18 @@ import { UserResponseDTO } from '../../api';
 export class HomeComponent implements OnInit {
   private authHelperService = inject(AuthHelperService);
   private authService = inject(AuthService);
+  private navigationService = inject(NavigationService);
 
+  greetingMessage: string = '';
   // Auth0 user observable
   auth0User$ = this.authService.user$;
-  // user: any = null;
 
   // user = this.authHelperService.user;
-  user = signal<any | null>(null)
+  user = signal<any | null>(null);
 
   ngOnInit() {
-    this.user.set({first_name: "Robby"});
+    this.greetingMessage = this.getGreetingMessage();
+    this.user.set({ first_name: 'Robby' });
 
     this.auth0User$.pipe(take(1)).subscribe({
       next: (u) => {
@@ -35,5 +38,21 @@ export class HomeComponent implements OnInit {
         console.log('Cached User from localStorage:', cacheUser);
       },
     });
+  }
+
+  private getGreetingMessage(): string {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+      return 'Good morning,';
+    } else if (currentHour < 18) {
+      return 'Good afternoon,';
+    } else {
+      return 'Good evening,';
+    }
+  }
+
+  navigateTo(url: string) {
+    this.navigationService.navigateTo(url);
   }
 }

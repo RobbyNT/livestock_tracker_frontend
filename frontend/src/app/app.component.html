@@ -12,13 +12,13 @@
   }
   
   <!-- Scrollable content with proper top spacing -->
-  <div class="h-full overflow-y-auto">
+  <div class="h-full overflow-y-auto sm:mb-1.5">
    <!-- {{
     showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] ' : 'pt-[calc(env(safe-area-inset-top))]'
   }}"> -->
     <router-outlet />
   </div>
-  @if (showHeader()) {
-    <app-mobile-navigation-menu class="md:hidden w-full mt-1" />
+  @if (showHeader() && breakpointService.isMobile()) {
+    <app-mobile-navigation-menu class="w-full mt-1" />
   }
 </main>

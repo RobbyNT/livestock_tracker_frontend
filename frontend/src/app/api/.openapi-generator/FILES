@@ -50,6 +50,7 @@ model/userResponseDTO.ts
 model/userWriteDTO.ts
 model/validationError.ts
 model/validationErrorLocInner.ts
+model/value.ts
 param.ts
 provide-api.ts
 variables.ts
