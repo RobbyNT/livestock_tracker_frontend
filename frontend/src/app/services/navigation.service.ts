@@ -29,7 +29,7 @@ export class NavigationService {
   }
 
   checkRoute(url: string): boolean {
-    const excludedRoutes = ['/landing-page', '/login', '/register'];
+    const excludedRoutes = ['/landing-page', '/login', '/register', '/tenant/setup/create', '/tenant/setup/selection'];
     const pathname = url.split('?')[0];
     return !excludedRoutes.includes(pathname);
   }

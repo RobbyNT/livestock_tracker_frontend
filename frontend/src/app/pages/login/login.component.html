@@ -1,18 +1,18 @@
-<main class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<main class="min-h-screen flex items-center justify-center py-12 px-3 md:px-6">
   <div class="max-w-md w-full space-y-8">
 
-    <div class="text-center">
-      <div class="mx-auto h-18 w-18 border-3 border-accent dark:bg-white rounded-xl flex items-center justify-center mb-6 p-4">
-        <img src="assets/main_logo.svg" alt="logo" class="size-12" />
+    <!-- Login Form -->
+    <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl py-8 px-6 shadow-xl border border-gray-200 dark:border-gray-700">
+      <!-- Header -->
+      <div class="text-center mb-5">
+        <div class="mx-auto h-18 w-18 border-3 border-accent rounded-xl flex items-center justify-center mb-6 p-4 bg-white/80 backdrop-blur-sm shadow-lg">
+          <img src="assets/main_logo.svg" alt="logo" class="size-12" />
+        </div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-200">RanchXpert</h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Please login to your account</p>
       </div>
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-200">RanchXpert</h2>
-      <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Please login to your account</p>
-    </div>
-
-
-    <div class="bg-white dark:bg-gray-950 rounded py-8 px-6 ">
-
-      <div *ngIf="errorMessage" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="mb-4 p-3 bg-red-50/80 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 rounded-lg backdrop-blur-sm">
         <div class="flex">
           <div class="flex-shrink-0">
             <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
@@ -22,12 +22,12 @@
             </svg>
           </div>
           <div class="ml-3">
-            <p class="text-sm text-red-800">{{ errorMessage }}</p>
+            <p class="text-sm text-red-800 dark:text-red-400">{{ errorMessage }}</p>
           </div>
           <div class="ml-auto pl-3">
-            <button type="button" (click)="clearError()" class="text-red-400 hover:text-red-600">
+            <button type="button" (click)="clearError()" class="text-red-400 hover:text-red-600 transition-colors duration-200">
               <span class="sr-only">Dismiss</span>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="h-5 w-5" viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                   clip-rule="evenodd"></path>
@@ -38,25 +38,30 @@
       </div>
 
       <form class="space-y-6" [formGroup]="loginFormGroup" (ngSubmit)="login()">
-
+        <!-- Username/Email Field -->
         <div>
           <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email/Username</label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg class="size-5 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207">
                 </path>
               </svg>
             </div>
-            <input id="username" name="username" type="text" formControlName="username"
-              [class]="'block w-full pl-10 pr-3 py-3 border dark:text-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (usernameErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
-              placeholder="Enter your email or username" [disabled]="isLoading">
+            <input
+              id="username"
+              name="username"
+              type="text"
+              formControlName="username"
+              [class]="'block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (usernameErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
+              placeholder="Enter your email or username"
+              >
           </div>
-          <p *ngIf="usernameErrors" class="mt-2 text-sm text-red-600">{{ usernameErrors }}</p>
+          <p *ngIf="usernameErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ usernameErrors }}</p>
         </div>
 
-
+        <!-- Password Field -->
         <div>
           <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
           <div class="relative">
@@ -67,11 +72,16 @@
                 </path>
               </svg>
             </div>
-            <input id="password" name="password" type="password" formControlName="password"
-              [class]="'block w-full pl-10 pr-10 py-3 border dark:text-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (passwordErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
-              placeholder="Enter your password" [disabled]="isLoading">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              formControlName="password"
+              [class]="'block w-full pl-10 pr-10 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (passwordErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
+              placeholder="Enter your password"
+              >
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-              <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              <button type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
                 [disabled]="isLoading">
                 <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -83,29 +93,34 @@
               </button>
             </div>
           </div>
-          <p *ngIf="passwordErrors" class="mt-2 text-sm text-red-600">{{ passwordErrors }}</p>
+          <p *ngIf="passwordErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ passwordErrors }}</p>
         </div>
 
-
-        <div class="flex items-center justify-between">
+        <!-- Remember Me & Forgot Password -->
+        <div class="flex items-center justify-between p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-600/50">
           <div class="flex items-center">
-            <input id="remember-me" name="remember-me" type="checkbox"
-              class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition-colors duration-200"
-              [disabled]="isLoading">
+            <input
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              class="h-4 w-4 text-accent focus:ring-accent border-gray-300 dark:border-gray-600 rounded transition-colors duration-200"
+              >
             <label for="remember-me" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Remember me</label>
           </div>
           <div class="text-sm">
             <a href="/forgot-password"
-              class="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200">
+              class="font-medium text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-accent transition-colors duration-200">
               Forgot your password?
             </a>
           </div>
         </div>
 
-
+        <!-- Sign In Button -->
         <div>
-          <button type="submit" [disabled]="isLoading"
-            [class]="'group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 ' + (isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-secondary transform hover:scale-105 active:scale-95')">
+          <button
+            type="submit"
+            [disabled]="isLoading"
+            [class]="'group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent shadow-lg hover:shadow-xl transition-all duration-200 ' + (isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-accent hover:bg-accent-dark transform hover:-translate-y-0.5 active:scale-95')">
 
             <span *ngIf="!isLoading" class="absolute left-0 inset-y-0 flex items-center pl-3">
               <svg class="size-5 text-white group-hover:text-white" fill="none" stroke="currentColor"
@@ -129,21 +144,22 @@
           </button>
         </div>
 
-
+        <!-- Divider -->
         <div class="relative">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
           </div>
           <div class="relative flex justify-center text-sm">
-            <span class="absolute -top-2.5 z-50 px-2 text-gray-500 dark:text-gray-100">Or continue with</span>
+            <span class="px-2 bg-white/80 dark:bg-gray-800/80 text-gray-500 dark:text-gray-400">Or continue with</span>
           </div>
         </div>
 
-
+        <!-- Social Login Button -->
         <div class="flex flex-col gap-3">
-
-          <button type="button" [disabled]="isLoading"
-            class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          <button
+            type="button"
+            [disabled]="isLoading"
+            class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 dark:border-gray-600 rounded-xl shadow-lg bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-600/80 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:-translate-y-0.5"
             (click)="authZeroLogin()">
             <svg fill="currentColor" viewBox="0 0 53 64" class="size-6">
               <path
@@ -152,33 +168,18 @@
             </svg>
             <span class="ml-2">Auth0</span>
           </button>
-
-
-          <!-- <button type="button" [disabled]="isLoading"
-            class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-            <svg class="size-5 text-red-500" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-              <path fill="currentColor"
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-              <path fill="currentColor"
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-              <path fill="currentColor"
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-            </svg>
-            <span class="ml-2">Google</span>
-          </button> -->
         </div>
       </form>
+      <!-- Sign Up Link -->
+      <div class="text-center mt-5">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Don't have an account?
+          <a href="/register" class="font-medium text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-accent transition-colors duration-200">
+            Sign up here
+          </a>
+        </p>
+      </div>
     </div>
 
-    <!-- <div class="text-center">
-      <p class="text-sm text-gray-600">
-        Don't have an account?
-        <a href="/register" class="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200">
-          Sign up here
-        </a>
-      </p>
-    </div> -->
   </div>
 </main>

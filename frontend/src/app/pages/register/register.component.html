@@ -1,18 +1,18 @@
-<main class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<main class="min-h-screen flex items-center justify-center py-4 px-3 md:px-6">
   <div class="max-w-md w-full space-y-8">
-    <!-- Header -->
-    <div class="text-center">
-      <div class="mx-auto h-18 w-18 border-3 border-accent rounded-xl flex items-center justify-center mb-6 p-4">
-        <img src="assets/main_logo.svg" alt="logo" class="size-12" />
-      </div>
-      <h2 class="text-3xl font-bold text-gray-900">RanchXpert</h2>
-      <p class="mt-2 text-sm text-gray-600">Create your account</p>
-    </div>
-
+    
     <!-- Registration Form -->
-    <div class="bg-white py-8 px-6 shadow-xl rounded-2xl border border-gray-100">
+    <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm py-8 px-6 shadow-xl rounded-2xl border border-gray-200 dark:border-gray-700">
+      <!-- Header -->
+      <div class="text-center">
+        <div class="mx-auto h-18 w-18 border-3 border-accent rounded-xl flex items-center justify-center mb-6 p-4 bg-white/80 backdrop-blur-sm shadow-lg">
+          <img src="assets/main_logo.svg" alt="logo" class="size-12" />
+        </div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-200">RanchXpert</h2>
+        <p class="my-4 text-sm text-gray-600 dark:text-gray-400">Create your account</p>
+      </div>
       <!-- Error Message -->
-      <div *ngIf="errorMessage" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+      <div *ngIf="errorMessage" class="mb-4 p-3 bg-red-50/80 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 rounded-lg backdrop-blur-sm">
         <div class="flex">
           <div class="flex-shrink-0">
             <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
@@ -20,10 +20,10 @@
             </svg>
           </div>
           <div class="ml-3">
-            <p class="text-sm text-red-800">{{ errorMessage }}</p>
+            <p class="text-sm text-red-800 dark:text-red-400">{{ errorMessage }}</p>
           </div>
           <div class="ml-auto pl-3">
-            <button type="button" (click)="clearError()" class="text-red-400 hover:text-red-600">
+            <button type="button" (click)="clearError()" class="text-red-400 hover:text-red-600 transition-colors duration-200">
               <span class="sr-only">Dismiss</span>
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -38,7 +38,7 @@
         <div class="grid grid-cols-2 gap-4">
           <!-- First Name Field -->
           <div>
-            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+            <label for="firstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">First Name</label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,16 +52,16 @@
                 name="firstName" 
                 type="text" 
                 formControlName="firstName" 
-                [class]="'block w-full pl-10 pr-3 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (firstNameErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
+                [class]="'block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (firstNameErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
                 placeholder="First name"
                 [disabled]="isLoading">
             </div>
-            <p *ngIf="firstNameErrors" class="mt-2 text-sm text-red-600">{{ firstNameErrors }}</p>
+            <p *ngIf="firstNameErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ firstNameErrors }}</p>
           </div>
 
           <!-- Last Name Field -->
           <div>
-            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+            <label for="lastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Last Name</label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,17 +75,17 @@
                 name="lastName" 
                 type="text" 
                 formControlName="lastName" 
-                [class]="'block w-full pl-10 pr-3 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (lastNameErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
+                [class]="'block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (lastNameErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
                 placeholder="Last name"
                 [disabled]="isLoading">
             </div>
-            <p *ngIf="lastNameErrors" class="mt-2 text-sm text-red-600">{{ lastNameErrors }}</p>
+            <p *ngIf="lastNameErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ lastNameErrors }}</p>
           </div>
         </div>
 
         <!-- Email Field -->
         <div>
-          <label for="emailAddress" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+          <label for="emailAddress" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,16 +99,16 @@
               name="emailAddress" 
               type="email" 
               formControlName="emailAddress" 
-              [class]="'block w-full pl-10 pr-3 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (emailErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
+              [class]="'block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (emailErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
               placeholder="Enter your email address"
               [disabled]="isLoading">
           </div>
-          <p *ngIf="emailErrors" class="mt-2 text-sm text-red-600">{{ emailErrors }}</p>
+          <p *ngIf="emailErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ emailErrors }}</p>
         </div>
 
         <!-- Phone Number Field (Optional) -->
         <div>
-          <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">
+          <label for="phoneNumber" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Phone Number 
             <span class="text-gray-400 text-xs">(optional)</span>
           </label>
@@ -125,16 +125,16 @@
               name="phoneNumber" 
               type="tel" 
               formControlName="phoneNumber" 
-              [class]="'block w-full pl-10 pr-3 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (phoneNumberErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
+              [class]="'block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (phoneNumberErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
               placeholder="Enter your phone number"
               [disabled]="isLoading">
           </div>
-          <p *ngIf="phoneNumberErrors" class="mt-2 text-sm text-red-600">{{ phoneNumberErrors }}</p>
+          <p *ngIf="phoneNumberErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ phoneNumberErrors }}</p>
         </div>
 
         <!-- Password Field -->
         <div>
-          <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+          <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,11 +148,11 @@
               name="password" 
               type="password" 
               formControlName="password" 
-              [class]="'block w-full pl-10 pr-10 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (passwordErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
+              [class]="'block w-full pl-10 pr-10 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (passwordErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
               placeholder="Enter your password"
               [disabled]="isLoading">
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-              <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors duration-200" [disabled]="isLoading">
+              <button type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200" [disabled]="isLoading">
                 <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -163,12 +163,12 @@
               </button>
             </div>
           </div>
-          <p *ngIf="passwordErrors" class="mt-2 text-sm text-red-600">{{ passwordErrors }}</p>
+          <p *ngIf="passwordErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ passwordErrors }}</p>
         </div>
 
         <!-- Confirm Password Field -->
         <div>
-          <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+          <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Confirm Password</label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -182,11 +182,11 @@
               name="confirmPassword" 
               type="password" 
               formControlName="confirmPassword" 
-              [class]="'block w-full pl-10 pr-10 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors duration-200 text-sm ' + (confirmPasswordErrors ? 'border-red-300 focus:border-red-500' : 'border-accent focus:border-blue-500')"
+              [class]="'block w-full pl-10 pr-10 py-3 bg-white dark:bg-gray-700 border rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200 ' + (confirmPasswordErrors ? 'border-red-300 dark:border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600')"
               placeholder="Confirm your password"
               [disabled]="isLoading">
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-              <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors duration-200" [disabled]="isLoading">
+              <button type="button" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200" [disabled]="isLoading">
                 <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -197,19 +197,19 @@
               </button>
             </div>
           </div>
-          <p *ngIf="confirmPasswordErrors" class="mt-2 text-sm text-red-600">{{ confirmPasswordErrors }}</p>
+          <p *ngIf="confirmPasswordErrors" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ confirmPasswordErrors }}</p>
         </div>
 
         <!-- Terms and Conditions -->
-        <div class="flex items-center">
+        <div class="flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-600/50">
           <input id="terms" name="terms" type="checkbox"
-            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition-colors duration-200"
+            class="h-4 w-4 text-accent focus:ring-accent border-gray-300 dark:border-gray-600 rounded transition-colors duration-200"
             [disabled]="isLoading">
-          <label for="terms" class="ml-2 block text-sm text-gray-700">
+          <label for="terms" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
             I agree to the 
-            <a href="/terms" class="text-blue-600 hover:text-blue-500">Terms of Service</a>
+            <a href="/terms" class="text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-accent transition-colors duration-200">Terms of Service</a>
             and 
-            <a href="/privacy" class="text-blue-600 hover:text-blue-500">Privacy Policy</a>
+            <a href="/privacy" class="text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-accent transition-colors duration-200">Privacy Policy</a>
           </label>
         </div>
 
@@ -218,7 +218,7 @@
           <button 
             type="submit"
             [disabled]="isLoading"
-            [class]="'group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 ' + (isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-secondary transform hover:scale-105 active:scale-95')">
+            [class]="'group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent shadow-lg hover:shadow-xl transition-all duration-200 ' + (isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-accent hover:bg-accent-dark transform hover:-translate-y-0.5 active:scale-95')">
             
             <span *ngIf="!isLoading" class="absolute left-0 inset-y-0 flex items-center pl-3">
               <svg class="size-5 text-white group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,20 +240,20 @@
         </div>
 
         <!-- Divider -->
-        <div class="relative">
+        <!-- <div class="relative">
           <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t border-gray-300"></div>
+            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
           </div>
           <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-white text-gray-500">Or register with</span>
+            <span class="px-2 bg-white/80 dark:bg-gray-800/80 text-gray-500 dark:text-gray-400">Or register with</span>
           </div>
-        </div>
+        </div> -->
 
         <!-- Social Registration Buttons -->
-        <div class="flex flex-col gap-3">
+        <!-- <div class="flex flex-col gap-3">
           <button type="button"
             [disabled]="isLoading"
-            class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+            class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 dark:border-gray-600 rounded-xl shadow-lg bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-600/80 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:-translate-y-0.5">
             <svg class="size-5 text-red-500" viewBox="0 0 24 24">
               <path fill="currentColor"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -266,17 +266,17 @@
             </svg>
             <span class="ml-2">Google</span>
           </button>
-        </div>
+        </div> -->
       </form>
+      <div class="text-center mt-4">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Already have an account?
+          <a href="/login" class="font-medium text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-accent transition-colors duration-200">
+            Sign in here
+          </a>
+        </p>
+      </div>
     </div>
 
-    <div class="text-center">
-      <p class="text-sm text-gray-600">
-        Already have an account?
-        <a href="/login" class="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200">
-          Sign in here
-        </a>
-      </p>
-    </div>
   </div>
 </main>

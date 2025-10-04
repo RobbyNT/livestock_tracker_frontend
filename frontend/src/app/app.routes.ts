@@ -16,23 +16,26 @@ import { EditAnimalComponent } from './pages/animal/edit-animal/edit-animal.comp
 import { HomeAnimalComponent } from './pages/animal/home-animal/home-animal.component';
 import { MyProfileComponent } from './pages/user/my-profile/my-profile.component';
 import { MySettingsComponent } from './pages/user/my-settings/my-settings.component';
+import { TenantOptions } from './pages/tenant/options-tenant/options-tenant.component';
+import { SubscriptionTenantComponent } from './pages/tenant/subscription-tenant/subscription-tenant.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'landing-page', component: LandingComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'tenant/setup/selection', component: TenantOptions },
+  { path: 'tenant/setup/subscriptions', component: SubscriptionTenantComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password?token=:token', component: ResetPasswordComponent },
   { path: 'multifactor-auth', component: MultiFactorComponent },
   { path: 'auth/callback', component: AuthCallbackComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'my-profile', component: MyProfileComponent },
-  { path: 'settings', component: MySettingsComponent },
-  { path: 'loading', component: LoadingScreenComponent },
-  { path: 'animal/home', component: HomeAnimalComponent },
-  { path: 'animal/new', component: NewAnimalComponent },
-  { path: 'animal/:id', component: EditAnimalComponent },
-  { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard], data: {'scopes': []} },
+  { path: 'my-profile', component: MyProfileComponent, canActivate: [authGuard] },
+  { path: 'settings', component: MySettingsComponent, canActivate: [authGuard] },
+  { path: 'animal/home', component: HomeAnimalComponent, canActivate: [authGuard] },
+  { path: 'animal/new', component: NewAnimalComponent, canActivate: [authGuard] },
+  { path: 'animal/:id', component: EditAnimalComponent, canActivate: [authGuard] },
+  { path: 'unauthorized', component: UnauthorizedComponent, canActivate: [authGuard] },
   { path: '**', component: NotFoundComponent },
 ];

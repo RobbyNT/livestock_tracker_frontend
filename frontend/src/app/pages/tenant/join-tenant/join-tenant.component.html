@@ -1,0 +1,105 @@
+<div
+  class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-4 md:p-6"
+>
+  <app-dynamic-form [config]="joinRanchConfig" [isSubmitting]="isSubmitting" />
+</div>
+
+<!-- <div
+  class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="p-3 rounded bg-blue-600/20">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-8 fill-blue-600">
+        <path fill-rule="evenodd"
+          d="M4.5 2.25a.75.75 0 0 0 0 1.5v16.5h-.75a.75.75 0 0 0 0 1.5h16.5a.75.75 0 0 0 0-1.5h-.75V3.75a.75.75 0 0 0 0-1.5h-15ZM9 6a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H9Zm-.75 3.75A.75.75 0 0 1 9 9h1.5a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75ZM9 12a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H9Zm3.75-5.25A.75.75 0 0 1 13.5 6H15a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM13.5 9a.75.75 0 0 0 0 1.5H15A.75.75 0 0 0 15 9h-1.5Zm-.75 3.75a.75.75 0 0 1 .75-.75H15a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM9 19.5v-2.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 9 19.5Z"
+          clip-rule="evenodd" />
+      </svg>
+    </div>
+    <div>
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-200">
+        Join Ranch
+      </h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        Enter your invitation details
+      </p>
+    </div>
+  </div>
+
+  <form class="space-y-6" [formGroup]="joinRanchForm" (ngSubmit)="joinRanch()">
+    <div>
+      <label for="invitationCode" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Invitation
+        Code *</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 7a2 2 0 012 2m0 0v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9a2 2 0 012-2m6 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m6 0H9" />
+          </svg>
+        </div>
+        <input id="invitationCode" name="invitationCode" type="text" formControlName="invitationCode"
+          class="block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200"
+          placeholder="Enter invitation code (e.g., ABC123DEF)" />
+      </div>
+      <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">
+        Ask your ranch manager for the invitation code
+      </p>
+    </div>
+
+    <div>
+      <label for="ranchOwnerEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Ranch
+        Owner Email (Optional)</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+          </svg>
+        </div>
+        <input id="ranchOwnerEmail" name="ranchOwnerEmail" type="email" formControlName="ranchOwnerEmail"
+          class="block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200"
+          placeholder="ranch.owner@example.com" />
+      </div>
+      <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">
+        This helps verify the invitation
+      </p>
+    </div>
+
+    <div>
+      <label for="userRole" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Role
+        *</label>
+      <select id="userRole" name="userRole" formControlName="userRole"
+        class="block w-full px-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200">
+        <option value="">Select your role</option>
+        <option value="manager">Ranch Manager</option>
+        <option value="foreman">Foreman</option>
+        <option value="worker">Ranch Hand</option>
+        <option value="veterinarian">Veterinarian</option>
+        <option value="family">Family Member</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="flex gap-4 pt-4"> 
+      <button type="submit" class="flex-1 px-4 py-3 border border-transparent text-sm font-medium rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-lg hover:shadow-xl transition-all duration-200 {{ isLoading() ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 transform hover:-translate-y-0.5 active:scale-95'}}">
+        <span class="flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 fill-white">
+            <path
+              d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z" />
+          </svg>
+          Join Ranch
+        </span>
+
+        @if (isLoading()) {
+        <span class="flex items-center justify-center">
+          <svg class="animate-spin w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+          </svg>
+          Joining...
+        </span>
+        }
+      </button>
+    </div>
+  </form>
+</div> -->

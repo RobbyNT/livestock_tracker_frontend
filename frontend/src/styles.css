@@ -30,4 +30,5 @@ html, body {
 body {
   min-height: 100dvh; /* ensure content is taller than screen */
   -webkit-overflow-scrolling: touch; /* smooth momentum scrolling */
+  overflow-y: auto;
 }

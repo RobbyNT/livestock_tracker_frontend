@@ -21,23 +21,21 @@ export class HomeComponent implements OnInit {
   // Auth0 user observable
   auth0User$ = this.authService.user$;
 
-  // user = this.authHelperService.user;
-  user = signal<any | null>(null);
+  user = this.authHelperService.user;
 
   ngOnInit() {
     this.greetingMessage = this.getGreetingMessage();
-    this.user.set({ first_name: 'Robby' });
 
-    this.auth0User$.pipe(take(1)).subscribe({
-      next: (u) => {
-        console.log('Auth0 User:', u);
-        if (u) {
-          localStorage.setItem('user', JSON.stringify(u));
-        }
-        const cacheUser = localStorage.getItem('user');
-        console.log('Cached User from localStorage:', cacheUser);
-      },
-    });
+    // this.auth0User$.pipe(take(1)).subscribe({
+    //   next: (u) => {
+    //     console.log('Auth0 User:', u);
+    //     if (u) {
+    //       localStorage.setItem('user', JSON.stringify(u));
+    //     }
+    //     const cacheUser = localStorage.getItem('user');
+    //     console.log('Cached User from localStorage:', cacheUser);
+    //   },
+    // });
   }
 
   private getGreetingMessage(): string {

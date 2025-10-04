@@ -1,24 +1,12 @@
-<!-- <main class="h-screen w-full grid grid-rows-[auto_1fr]">
-  <app-header *ngIf="showHeader" class="shrink-0" />
-  <div class="flex-1 overflow-y-auto app-container">
-    <router-outlet />
-  </div>
-</main> -->
-
-<main class="h-full w-full flex flex-col bg-gradient-to-br from-primary via-white to-accent dark:from-black dark:via-secondary dark:to-accent">
+<main class="h-full w-full flex flex-col">
   <!-- Fixed header -->
   @if (showHeader()) {
-  <app-header class="h-[75px] bg-white shadow-md" />
+  <app-header class="h-20 w-full bg-white shadow-md fixed top-0 z-50" />
   }
-  
-  <!-- Scrollable content with proper top spacing -->
-  <div class="h-full overflow-y-auto sm:mb-1.5">
-   <!-- {{
-    showHeader() ? 'pt-[calc(75px+env(safe-area-inset-top))] ' : 'pt-[calc(env(safe-area-inset-top))]'
-  }}"> -->
+  <div class="{{ showHeader() ? 'py-20 sm:pb-2' : ''}}">
     <router-outlet />
   </div>
   @if (showHeader() && breakpointService.isMobile()) {
-    <app-mobile-navigation-menu class="w-full mt-1" />
+    <app-mobile-navigation-menu class="w-full fixed bottom-0 z-50" />
   }
 </main>

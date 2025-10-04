@@ -49,13 +49,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     // Get return URL from route parameters or default to '/home'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
-    
+
     // Check if user is already logged in
     if (this.authHelperService.user()) {
-      this.router.navigate([this.returnUrl]);
+      await this.router.navigate([this.returnUrl]);
     }
   }
 
@@ -67,9 +67,9 @@ export class LoginComponent implements OnInit {
     if (this.loginFormGroup.valid && !this.isLoading) {
       this.isLoading = true;
       this.errorMessage = '';
-      
+
       const { username, password } = this.loginFormGroup.value;
-      
+
       this.authHelperService
         .login(username, password)
         .pipe(take(1))
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
           error: (error) => {
             console.error('Login failed:', error);
             this.isLoading = false;
-            
+
             // Handle different error scenarios
             if (error.status === 401) {
               this.errorMessage = 'Invalid username or password';

@@ -1,0 +1,295 @@
+<div [class]="config.containerClass || 'space-y-6'">
+  <!-- Form Header -->
+  @if (config.title || config.description) {
+  <div class="mb-6">
+    @if (config.title) {
+    <h2
+      class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-200 mb-2"
+    >
+      {{ config.title }}
+    </h2>
+    } @if (config.description) {
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      {{ config.description }}
+    </p>
+    }
+  </div>
+  }
+
+  <!-- Dynamic Form -->
+  <form
+    [formGroup]="dynamicForm"
+    (ngSubmit)="onSubmit()"
+    [class]="getFormLayoutClass()"
+  >
+    <!-- Dynamic Fields -->
+    @for (field of visibleFields; track $index) {
+    <ng-container>
+      @if (shouldShowField(field)) {
+      <div [class]="getFieldContainerClass(field)">
+        <!-- Field Label -->
+        @if (field.label && field.type !== 'checkbox') {
+        <label [for]="field.key" [class]="getFieldLabelClass(field)">
+          {{ field.label }}
+          @if(field.required) {
+          <span class="text-red-500 ml-1">*</span>
+          }
+        </label>
+        }
+
+        <!-- Field Description -->
+        @if (field.description) {
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+          {{ field.description }}
+        </p>
+        }
+
+        <!-- Input Container -->
+        <div class="relative" [class.mt-2]="field.label">
+          <!-- Icon Prefix -->
+          @if (field.icon) {
+          <div
+            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+          >
+            <div [innerHTML]="field.icon" class="h-5 w-5 text-gray-400"></div>
+          </div>
+          }
+
+          <!-- Text Prefix -->
+          @if (field.prefix) {
+          <div
+            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+          >
+            <span class="text-gray-500 text-sm">{{ field.prefix }}</span>
+          </div>
+          }
+
+          <!-- Dynamic Input Fields -->
+          <ng-container>
+            @switch (field.type) { @case ('text') {
+            <!-- Text, Email, Password, Number, Tel, URL -->
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="text"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [class]="getInputClass(field)"
+              [maxlength]="field.maxLength ?? 5"
+              [pattern]="field.pattern ?? ''"
+            />
+            } @case ('email') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="email"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [class]="getInputClass(field)"
+            />
+            } @case ('password') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="password"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [class]="getInputClass(field)"
+            />
+            } @case ('number') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="number"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [min]="field.min ?? 0"
+              [max]="field.max ?? 10"
+              [step]="field.step"
+              [class]="getInputClass(field)"
+            />
+            } @case ('tel') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="tel"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [class]="getInputClass(field)"
+            />
+            } @case ('url') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="url"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [class]="getInputClass(field)"
+            />
+            } @case ('date') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="date"
+              [readonly]="field.readonly"
+              [min]="field.min"
+              [max]="field.max"
+              [class]="getInputClass(field)"
+            />
+            } @case ('time') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="time"
+              [readonly]="field.readonly"
+              [class]="getInputClass(field)"
+            />
+            } @case ('file') {
+            <input
+              [id]="field.key"
+              [formControlName]="field.key"
+              type="file"
+              [accept]="field.accept"
+              [class]="getInputClass(field)"
+              (change)="onFileChange($event, field.key)"
+            />
+            }
+            <!-- Select Dropdown -->
+            @case ('select') {
+            <select
+              [id]="field.key"
+              [formControlName]="field.key"
+              [multiple]="field.multiple"
+              [class]="getInputClass(field)"
+            >
+              @if(!field.required && !field.multiple) {
+              <option value="" *ngIf="!field.required && !field.multiple">
+                {{ field.placeholder || "Select an option" }}
+              </option>
+            }
+            @for (option of field.options; track $index) {
+              <option
+                [value]="option.value"
+                [disabled]="option.disabled"
+              >
+                {{ option.label }}
+              </option>
+            }
+            </select>
+            } @case ('textarea') {
+            <!-- Textarea -->
+            <textarea
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+              [readonly]="field.readonly"
+              [rows]="field.rows || 3"
+              [maxlength]="field.maxLength ?? 10"
+              [class]="getInputClass(field)"
+            ></textarea>
+            } @case ('checkbox') {
+            <!-- Checkbox -->
+            <label [for]="field.key" class="flex items-center cursor-pointer">
+              <input
+                [id]="field.key"
+                [formControlName]="field.key"
+                type="checkbox"
+                [readonly]="field.readonly"
+                class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">
+                {{ field.label }}
+                @if(field.required) {
+                <span class="text-red-500 ml-1">*</span>
+                }
+              </span>
+            </label>
+            } @case ('radio') {
+            <!-- Radio Buttons -->
+            <div class="space-y-2">
+              @for (option of field.options; track $index) {
+              <label class="flex items-center cursor-pointer">
+                <input
+                  [name]="field.key"
+                  [formControlName]="field.key"
+                  type="radio"
+                  [value]="option.value"
+                  [disabled]="option.disabled ?? false"
+                  class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                />
+                <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">
+                  {{ option.label }}
+                </span> </label
+              >}
+            </div>
+            } }
+          </ng-container>
+          <!-- Text Suffix -->
+          @if (field.suffix) {
+          <div
+            class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+          >
+            <span class="text-gray-500 text-sm">{{ field.suffix }}</span>
+          </div>
+          }
+        </div>
+
+        <!-- Field Errors -->
+        @if (field.key) {
+        <div [class]="getFieldErrorClass(field)">
+          {{ getFieldErrorMessage(field) }}
+        </div>
+        }
+      </div>
+      }
+    </ng-container>
+    }
+    <!-- Form Actions -->
+    <div class="flex gap-4 pt-6">
+      @if (config.showResetButton) {
+      <button
+        type="button"
+        (click)="onReset()"
+        class="px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg transition-colors duration-200"
+      >
+        {{ config.resetButtonText || "Reset" }}
+      </button>
+      }
+
+      <button
+        type="submit"
+        [disabled]="dynamicForm.invalid || isSubmitting"
+        [class]="getSubmitButtonClass()"
+      >
+        @if (!isSubmitting) {
+        <span>
+          {{ config.submitButtonText || "Submit" }}
+        </span>
+        } @if (isSubmitting) {
+        <span class="flex items-center">
+          <svg
+            class="animate-spin w-4 h-4 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          Submitting...
+        </span>
+        }
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,238 @@
+<div
+  class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-4 md:p-6"
+>
+  <app-dynamic-form [config]="createRanchConfig" [isSubmitting]="isLoading()" />
+</div>
+
+<!-- <div class="grid grid-cols-1 gap-4">
+  <div
+    class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-10 h-10 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center">
+        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      </div>
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-200">Ranch Information</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Tell us about your ranch operation</p>
+      </div>
+    </div>
+
+    <form class="space-y-6" [formGroup]="createRanchForm">
+      <div>
+        <label for="ranchName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Ranch Name
+          *</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <input id="ranchName" name="ranchName" type="text" formControlName="ranchName"
+            class="block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200"
+            placeholder="e.g., Sunset Valley Ranch">
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label for="city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">City *</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <input id="city" name="city" type="text" formControlName="city"
+              class="block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200"
+              placeholder="Oklahoma City">
+          </div>
+        </div>
+        <div>
+          <label for="state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">State *</label>
+          <select id="state" name="state" formControlName="state"
+            class="block w-full px-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200">
+            <option value="">Select State</option>
+            <option value="AL">Alabama</option>
+            <option value="OK" selected>Oklahoma</option>
+            <option value="TX">Texas</option>
+            <option value="KS">Kansas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label for="acreage" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Total
+            Acreage</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <input id="acreage" name="acreage" type="number" formControlName="acreage"
+              class="block w-full pl-10 pr-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200"
+              placeholder="1247">
+          </div>
+        </div>
+        <div>
+          <label for="ranchType" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Ranch Type
+            *</label>
+          <select id="ranchType" name="ranchType" formControlName="ranchType"
+            class="block w-full px-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200">
+            <option value="">Select Type</option>
+            <option value="cattle">Cattle Ranch</option>
+            <option value="mixed">Mixed Livestock</option>
+            <option value="horse">Horse Ranch</option>
+            <option value="sheep">Sheep Ranch</option>
+            <option value="goat">Goat Ranch</option>
+            <option value="poultry">Poultry Farm</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Primary Livestock (select all
+          that apply)</label>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <label
+            class="relative flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100/80 dark:hover:bg-gray-800/50 transition-colors duration-200">
+            <input type="checkbox" formControlName="livestockCattle"
+              class="w-4 h-4 text-accent border-gray-300 dark:border-gray-600 rounded focus:ring-accent">
+            <div class="ml-3 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Cattle</span>
+            </div>
+          </label>
+          <label
+            class="relative flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100/80 dark:hover:bg-gray-800/50 transition-colors duration-200">
+            <input type="checkbox" formControlName="livestockHorses"
+              class="w-4 h-4 text-accent border-gray-300 dark:border-gray-600 rounded focus:ring-accent">
+            <div class="ml-3 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Horses</span>
+            </div>
+          </label>
+          <label
+            class="relative flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100/80 dark:hover:bg-gray-800/50 transition-colors duration-200">
+            <input type="checkbox" formControlName="livestockSheep"
+              class="w-4 h-4 text-accent border-gray-300 dark:border-gray-600 rounded focus:ring-accent">
+            <div class="ml-3 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Sheep</span>
+            </div>
+          </label>
+          <label
+            class="relative flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100/80 dark:hover:bg-gray-800/50 transition-colors duration-200">
+            <input type="checkbox" formControlName="livestockGoats"
+              class="w-4 h-4 text-accent border-gray-300 dark:border-gray-600 rounded focus:ring-accent">
+            <div class="ml-3 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Goats</span>
+            </div>
+          </label>
+          <label
+            class="relative flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100/80 dark:hover:bg-gray-800/50 transition-colors duration-200">
+            <input type="checkbox" formControlName="livestockPigs"
+              class="w-4 h-4 text-accent border-gray-300 dark:border-gray-600 rounded focus:ring-accent">
+            <div class="ml-3 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Pigs</span>
+            </div>
+          </label>
+          <label
+            class="relative flex items-center p-3 bg-gray-50/80 dark:bg-gray-900/50 rounded-lg border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100/80 dark:hover:bg-gray-800/50 transition-colors duration-200">
+            <input type="checkbox" formControlName="livestockPoultry"
+              class="w-4 h-4 text-accent border-gray-300 dark:border-gray-600 rounded focus:ring-accent">
+            <div class="ml-3 flex items-center">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2M7 4h10M7 4l-2 14h14l-2-14" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Poultry</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="experienceLevel" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Experience
+          Level *</label>
+        <select id="experienceLevel" name="experienceLevel" formControlName="experienceLevel"
+          class="block w-full px-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200">
+          <option value="">Select Experience</option>
+          <option value="beginner">Beginner (0-2 years)</option>
+          <option value="intermediate">Intermediate (3-10 years)</option>
+          <option value="experienced">Experienced (10+ years)</option>
+          <option value="expert">Expert/Professional</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Ranch
+          Description (Optional)</label>
+        <textarea id="description" name="description" rows="3" formControlName="description"
+          class="block w-full px-3 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors duration-200 text-sm text-gray-800 dark:text-gray-200"
+          placeholder="Tell us about your ranch operation, goals, or anything else you'd like us to know..."></textarea>
+      </div>
+
+      <div class="flex gap-4 pt-4">
+        <button type="button"
+            class="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 font-medium text-sm"
+           >
+            Skip for Now
+          </button>
+        <button type="submit"
+          [class]="'flex-1 px-4 py-3 border border-transparent text-sm font-medium rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent shadow-lg hover:shadow-xl transition-all duration-200 ' + (isLoading() ? 'bg-gray-400 cursor-not-allowed' : 'bg-accent hover:bg-accent-dark transform hover:-translate-y-0.5 active:scale-95')">
+          <span class="flex items-center justify-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Complete Setup
+          </span>
+
+          @if (isLoading()) {
+          <span class="flex items-center justify-center">
+            <svg class="animate-spin w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+              </path>
+            </svg>
+            Setting up...
+          </span>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</div> -->
